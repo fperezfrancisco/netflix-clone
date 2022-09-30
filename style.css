@@ -1,0 +1,270 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --netflix-red: #e50914;
+  --black: #141414;
+  --white: #fff;
+  --grey: #808080;
+}
+
+body,
+html {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  color: var(--netflix-red);
+  margin: 0px;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin: 15px 0px;
+}
+
+h3 {
+  font-size: 1rem;
+  margin: 5px 0px;
+}
+
+p {
+  font-size: 0.75rem;
+  font-weight: 200;
+  margin: 5px 0px;
+}
+
+header {
+  height: 50px;
+  width: 100vw;
+  padding: 5px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 2;
+  background-color: transparent;
+}
+
+.userTools {
+  width: 100%;
+  height: auto;
+  max-height: 30px;
+  max-width: 45px;
+}
+
+.userIcon {
+  height: 100%;
+  width: auto;
+}
+
+.bigGraphic {
+  width: 100%;
+  height: 80vh;
+  min-height: 550px;
+  background-image: url("images/dark-knight-background.jpeg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover;
+  position: relative;
+}
+
+.titleInfo {
+  position: absolute;
+  width: 500px;
+  /*max-width: 450px;*/
+  top: 75px;
+  left: 0;
+  right: 0;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.movieTitleBig {
+  font-variant-caps: all-small-caps;
+}
+
+#firstRow {
+  margin-top: -7.5vw;
+}
+
+.mediaRow {
+  position: relative;
+  z-index: 2;
+  margin: 3vw 0;
+  padding: 0px 25px;
+  background-color: transparent;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  margin: 10px 0;
+}
+
+.rowContainer {
+  width: 100%;
+  height: fit-content;
+  padding: 0% 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
+}
+
+.mediaBox {
+  width: 100%;
+  min-width: 200px;
+  height: fit-content;
+  margin: 0px 15px;
+}
+
+.movieContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.movieNumber {
+  /*-webkit-text-stroke: var(--grey);*/
+  color: var(--grey);
+  font-size: 6rem;
+  font-weight: 900;
+}
+
+.wideContainer {
+  width: 100%;
+  min-width: 300px;
+  max-width: 500px;
+  height: fit-content;
+  margin: 0px 5px;
+}
+
+.mediaIcon {
+  width: 100%;
+  min-width: 120px;
+  height: auto;
+}
+
+/**Footer styling*/
+
+footer {
+  padding: 5% 17.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.socials {
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.socialmediaIcons {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.socialmediaIcons li {
+  display: inline-block;
+  margin: 0px 5px;
+}
+
+.footerTools {
+  margin-bottom: 25px;
+  color: var(--grey);
+  font-size: 1rem;
+  font-weight: 300;
+  display: grid;
+  grid-template-columns: repeat(4, minMax(200px, 1fr));
+  row-gap: 10px;
+  text-align: left;
+}
+
+.footLink {
+  text-decoration: none;
+  color: inherit;
+}
