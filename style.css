@@ -120,8 +120,49 @@ header {
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   background-color: transparent;
+  background-image: linear-gradient(var(--black), transparent);
+}
+
+.scroll {
+  background-color: var(--black) !important;
+  transition: background-color 200ms linear;
+}
+
+.browseNav {
+  display: flex;
+  text-align: center;
+  justify-content: flex-start;
+  color: var(--white);
+  font-size: 0.75rem;
+}
+
+.navList {
+  display: none;
+  width: 100%;
+  margin-right: 30%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--white);
+  font-size: 0.75rem;
+  /*padding-right: 55px;*/
+}
+
+.navLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.navItem {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.navLink:hover,
+.navLink:active {
+  text-decoration: underline;
 }
 
 .userTools {
@@ -129,11 +170,104 @@ header {
   height: auto;
   max-height: 30px;
   max-width: 45px;
+  cursor: pointer;
 }
 
 .userIcon {
   height: 100%;
+  max-height: 35px;
   width: auto;
+  max-width: 40px;
+}
+
+/** nav profile hover*/
+
+.accountOptions {
+  position: fixed;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  z-index: 4;
+  top: 65px;
+  right: 25px;
+  width: 200px;
+  height: auto;
+  background-color: var(--black);
+  color: var(--white);
+  transition: all ease-out 1s;
+}
+
+.accounts,
+.accountSettings,
+.signOut {
+  padding: 10px;
+  border: 0.75px solid var(--grey);
+  font-size: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.accountOptionsLink {
+  color: inherit;
+  width: 100%;
+  text-emphasis: none;
+  text-decoration: none;
+}
+
+.accountOptionsLink:hover,
+.accountOptionsLink:active {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.nextAccount {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  margin: 5px 0px;
+}
+
+.littleIcon {
+  width: 30px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.settingsList {
+  padding-left: 25px;
+  list-style-type: none;
+  width: 100%;
+}
+
+.settingsLi {
+  margin-bottom: 5px;
+}
+
+.signOut {
+  text-align: center;
+}
+
+/*show on hover*/
+
+.userTools:hover + .accountOptions,
+.accountOptions:hover,
+.accountOptions:focus,
+.userTools:active {
+  visibility: visible;
+  opacity: 1;
+  /*transition: all ease-out 1s;*/
+}
+
+/***/
+
+button {
+  padding: 10px 15px;
+  border-radius: 0.25rem;
+  border: none;
 }
 
 .bigGraphic {
@@ -141,15 +275,18 @@ header {
   height: 80vh;
   min-height: 550px;
   background-image: url("images/dark-knight-background.jpeg");
+  background-image: linear-gradient(transparent, rgba(20, 20, 20, 0.5)),
+    url("images/dark-knight-background.jpeg");
   background-repeat: no-repeat;
-  background-position: left;
+  background-position: center;
   background-size: cover;
   position: relative;
 }
 
 .titleInfo {
   position: absolute;
-  width: 500px;
+  width: 250px;
+  height: auto;
   /*max-width: 450px;*/
   top: 75px;
   left: 0;
@@ -161,12 +298,45 @@ header {
   text-align: left;
 }
 
+.movieDescription {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+
+.buttonsBigGraphic {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.buttonsBigGraphic button {
+  height: 40px;
+  width: 100px;
+  padding: 5px;
+  margin-right: 15px;
+}
+
+.playMedia {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.moreInfo {
+  background-color: rgba(136, 136, 136, 0.75);
+  color: var(--white);
+}
+
 .movieTitleBig {
+  line-height: 1;
+  font-size: 3.5rem;
   font-variant-caps: all-small-caps;
 }
 
 #firstRow {
   margin-top: -7.5vw;
+  /*background-image: linear-gradient(var(--black), transparent);*/
 }
 
 .mediaRow {
@@ -185,7 +355,7 @@ header {
 .rowContainer {
   width: 100%;
   height: fit-content;
-  padding: 0% 25px;
+  padding: 0% 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -194,9 +364,9 @@ header {
 
 .mediaBox {
   width: 100%;
-  min-width: 200px;
-  height: fit-content;
-  margin: 0px 15px;
+  min-width: 125px;
+  height: min-content;
+  margin: 0px 10px;
 }
 
 .movieContainer {
@@ -206,30 +376,91 @@ header {
 }
 
 .movieNumber {
-  /*-webkit-text-stroke: var(--grey);*/
   color: var(--grey);
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 900;
 }
 
 .wideContainer {
   width: 100%;
-  min-width: 300px;
-  max-width: 500px;
-  height: fit-content;
+  min-width: 175px;
+  max-width: 375px;
+  height: min-content;
   margin: 0px 5px;
 }
 
 .mediaIcon {
   width: 100%;
-  min-width: 120px;
+  min-width: 75px;
   height: auto;
+}
+
+/*Quick overview stlyling*/
+.quickOverViewBox {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 3;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 0.6rem;
+  box-shadow: -5px -4px 5px var(--black);
+}
+
+.quickImageContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.quickViewImage {
+  width: 100%;
+  background-size: cover;
+}
+
+.quickOverviewText {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-size: 1rem;
+}
+
+.quickIcons,
+.mediaInfo,
+.genre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px 0px;
+}
+
+.genreList {
+  list-style-type: disc;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 0;
+  margin: 5px;
+  color: var(--grey);
+}
+
+.genreItem {
+  display: inline-block;
+  margin: 0px 10px;
 }
 
 /**Footer styling*/
 
 footer {
-  padding: 5% 17.5%;
+  padding: 2.5% 10%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -256,10 +487,10 @@ footer {
 .footerTools {
   margin-bottom: 25px;
   color: var(--grey);
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 300;
   display: grid;
-  grid-template-columns: repeat(4, minMax(200px, 1fr));
+  grid-template-columns: repeat(2, minMax(200px, 1fr));
   row-gap: 10px;
   text-align: left;
 }
@@ -267,4 +498,104 @@ footer {
 .footLink {
   text-decoration: none;
   color: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (min-width: 576px) {
+  .footerTools {
+    grid-template-columns: repeat(3, minMax(200px, 1fr));
+    row-gap: 10px;
+  }
+
+  .bigGraphic {
+    background-position: left;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .browseNav {
+    display: none;
+  }
+
+  .navList {
+    display: flex;
+  }
+
+  .titleInfo {
+    width: 500px;
+  }
+
+  .movieDescription {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .movieTitleBig {
+    font-size: 4rem;
+  }
+
+  .rowContainer {
+    width: 100%;
+    height: fit-content;
+    padding: 0% 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+  }
+
+  .mediaBox {
+    width: 100%;
+    min-width: 200px;
+    height: min-content;
+    margin: 0px 15px;
+  }
+
+  .movieContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .movieNumber {
+    font-size: 6rem;
+    font-weight: 900;
+  }
+
+  .wideContainer {
+    width: 100%;
+    min-width: 300px;
+    max-width: 500px;
+    height: min-content;
+    margin: 0px 5px;
+  }
+
+  .mediaIcon {
+    width: 100%;
+    min-width: 120px;
+    height: auto;
+  }
+
+  footer {
+    padding: 5% 17.5%;
+  }
+
+  .footerTools {
+    row-gap: 10px;
+    font-size: 0.75rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .footerTools {
+    grid-template-columns: repeat(4, minMax(200px, 1fr));
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
 }

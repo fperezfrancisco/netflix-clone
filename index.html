@@ -14,15 +14,61 @@
     <title>Netflix Clone F.J.P.</title>
   </head>
   <body>
-    <header class="pageNavigation">
+    <header class="pageNavigation" id="mainHeader">
       <span class="notflixIcon"><h1 class="notflixTitle">NOTFLIX</h1></span>
-      <nav class="menu"></nav>
-      <span class="userTools"
+      <nav class="menu">
+        <ul class="navList desktop-nav">
+          <li class="navItem"><a href="#" class="navLink">Home</a></li>
+          <li class="navItem"><a href="#" class="navLink">TV Shows</a></li>
+          <li class="navItem"><a href="#" class="navLink">Movies</a></li>
+          <li class="navItem"><a href="#" class="navLink">New & Popular</a></li>
+          <li class="navItem"><a href="#" class="navLink">My List</a></li>
+          <li class="navItem">
+            <a href="#" class="navLink">Browse by Languages</a>
+          </li>
+        </ul>
+        <span class="browseNav navItem">
+          <a href="#" class="navLink">Browse</a></span
+        >
+      </nav>
+      <span class="userTools" id="currentUser"
         ><img
           src="images/profile-icon-default.png"
           alt="Username"
           class="userIcon"
       /></span>
+      <div class="accountOptions">
+        <div class="accounts">
+          <a href="#" class="accountOptionsLink">
+            <div class="nextAccount">
+              <img
+                src="images/women-icon-profile.png"
+                alt="Brenda"
+                class="littleIcon"
+              />
+              <span class="username">Brenda</span>
+            </div>
+          </a>
+        </div>
+        <div class="accountSettings">
+          <ul class="settingsList">
+            <a href="#" class="accountOptionsLink"
+              ><li class="settingsLi">Manage Profiles</li></a
+            >
+            <a href="#" class="accountOptionsLink"
+              ><li class="settingsLi">Account</li></a
+            >
+            <a href="#" class="accountOptionsLink"
+              ><li class="settingsLi">Help Center</li></a
+            >
+          </ul>
+        </div>
+        <div class="signOut">
+          <a href="#" class="accountOptionsLink"
+            ><span class="signOutText">Sign out of Netflix</span></a
+          >
+        </div>
+      </div>
     </header>
     <main class="fullBody">
       <section class="bigGraphic">
@@ -42,6 +88,10 @@
             cupiditate ad, nihil culpa itaque voluptas expedita animi obcaecati
             maxime officiis. Molestias?
           </p>
+          <div class="buttonsBigGraphic">
+            <button class="playMedia">Play</button>
+            <button class="moreInfo">More Info</button>
+          </div>
         </div>
       </section>
       <section class="mediaRow topTen" id="firstRow">
@@ -76,6 +126,33 @@
             />
           </div>
           <div class="mediaBox movieContainer">
+            <div class="quickOverViewBox hidden">
+              <div class="quickImageContainer">
+                <img
+                  src="images/star-wars-last-jedi-movie.jpeg"
+                  alt=""
+                  class="quickViewImage"
+                />
+              </div>
+
+              <div class="quickOverviewText">
+                <div class="quickIcons">
+                  <span class="play">P</span><span class="addtolist">Add</span
+                  ><span class="like">Like</span>
+                </div>
+                <div class="mediaInfo">
+                  <span class="ratings">90%</span
+                  ><span class="rated">PG-13</span>
+                </div>
+                <div class="genre">
+                  <ul class="genreList">
+                    <li class="genreItem">Sci-Fi</li>
+                    <li class="genreItem">Action</li>
+                    <li class="genreItem">Adventure</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <span class="movieNumber">5</span>
             <img
               src="images/star-wars-last-jedi.jpg"
@@ -148,7 +225,7 @@
         <div class="rowContainer">
           <div class="mediaBox wideContainer">
             <img
-              src="images/el-camino-movie-wide.webp"
+              src="images/red-notice-moview-wide.jpg"
               alt=""
               class="mediaIcon"
             />
@@ -245,5 +322,6 @@
         <button class="serviceCodebtn">Service Code</button>
       </div>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
